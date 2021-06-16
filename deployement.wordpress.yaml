@@ -18,16 +18,16 @@ spec:
         app: wordpress
     spec:
       containers:
-      - env:
-        - name: WORDPRESS_DB_HOST
-          value: db
-        - name: WORDPRESS_DB_USER
-          value: exampleuser
-        - name: WORDPRESS_DB_PASSWORD
-          value: examplepass
-        - name: WORDPRESS_DB_NAME
-          value: exampledb
-      - image: wordpress
+        - env:
+          - name: WORDPRESS_DB_HOST
+            value: db
+          - name: WORDPRESS_DB_USER
+            value: exampleuser
+          - name: WORDPRESS_DB_PASSWORD
+            value: examplepass
+          - name: WORDPRESS_DB_NAME
+            value: exampledb
+        image: wordpress
         name: wordpress
         ports:
         - containerPort: 80

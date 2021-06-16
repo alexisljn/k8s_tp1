@@ -27,9 +27,9 @@ spec:
           value: examplepass
         - name: WORDPRESS_DB_NAME
           value: exampledb
-      image: wordpress
-      name: wordpress
-      ports:
-      - containerPort: 80
-      resources: {}
+        image: wordpress
+        name: wordpress
+        ports:
+        - containerPort: 80
+        resources: {}
 status: {}

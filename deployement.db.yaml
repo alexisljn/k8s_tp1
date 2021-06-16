@@ -18,15 +18,15 @@ spec:
         app: db
     spec:
       containers:
-        - env:
-          - name: MYSQL_DATABASE
-            value: exampledb
-          - name: MYSQL_USER
-            value: exampleuser
-          - name: MYSQL_PASSWORD
-            value: examplepass
-          - name: MYSQL_RANDOM_ROOT_PASSWORD
-            value: "1"
+      - env:
+        - name: MYSQL_DATABASE
+          value: exampledb
+        - name: MYSQL_USER
+          value: exampleuser
+        - name: MYSQL_PASSWORD
+          value: examplepass
+        - name: MYSQL_RANDOM_ROOT_PASSWORD
+          value: "1"
       - image: mysql:5.7
         name: mysql
         resources: {}

@@ -18,6 +18,7 @@ spec:
         app: db
     spec:
       containers:
+        name: db
       - env:
         - name: MYSQL_DATABASE
           value: exampledb

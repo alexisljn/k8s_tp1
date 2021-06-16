@@ -1,0 +1,84 @@
+apiVersion: v1
+items:
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2021-06-16T10:08:34Z"
+    labels:
+      run: db
+    name: db
+    namespace: demo-ns
+    resourceVersion: "18993"
+    uid: 8d38e513-3d2e-4be5-a9ad-f7c9c79b06ad
+  spec:
+    clusterIP: 10.98.210.31
+    clusterIPs:
+    - 10.98.210.31
+    externalTrafficPolicy: Cluster
+    ports:
+    - nodePort: 32635
+      port: 3306
+      protocol: TCP
+      targetPort: 3306
+    selector:
+      run: db
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2021-06-15T14:13:24Z"
+    labels:
+      run: demo1
+    name: demo1
+    namespace: demo-ns
+    resourceVersion: "9289"
+    uid: 039fc330-0a7f-436e-bdcc-52fcef568895
+  spec:
+    clusterIP: 10.108.82.66
+    clusterIPs:
+    - 10.108.82.66
+    externalTrafficPolicy: Cluster
+    ports:
+    - nodePort: 32355
+      port: 8080
+      protocol: TCP
+      targetPort: 8080
+    selector:
+      run: demo1
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+- apiVersion: v1
+  kind: Service
+  metadata:
+    creationTimestamp: "2021-06-16T09:51:29Z"
+    labels:
+      run: wordpress
+    name: wordpress
+    namespace: demo-ns
+    resourceVersion: "18234"
+    uid: f1778f46-f7d1-4a95-bc34-42dfa8e01cc0
+  spec:
+    clusterIP: 10.103.251.145
+    clusterIPs:
+    - 10.103.251.145
+    externalTrafficPolicy: Cluster
+    ports:
+    - nodePort: 31284
+      port: 8080
+      protocol: TCP
+      targetPort: 80
+    selector:
+      run: wordpress
+    sessionAffinity: None
+    type: NodePort
+  status:
+    loadBalancer: {}
+kind: List
+metadata:
+  resourceVersion: ""
+  selfLink: ""

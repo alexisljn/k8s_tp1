@@ -3,13 +3,16 @@ items:
 - apiVersion: v1
   kind: Pod
   metadata:
-    creationTimestamp: "2021-06-16T10:07:25Z"
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"creationTimestamp":"2021-06-16T10:07:25Z","labels":{"run":"db"},"name":"db","namespace":"demo-ns","resourceVersion":"18935","uid":"c86add99-33b8-4989-9b4f-3a5eb999800c"},"spec":{"containers":[{"env":[{"name":"MYSQL_DATABASE","value":"exampledb"},{"name":"MYSQL_USER","value":"exampleuser"},{"name":"MYSQL_PASSWORD","value":"examplepass"},{"name":"MYSQL_RANDOM_ROOT_PASSWORD","value":"1"}],"image":"mysql:5.7","imagePullPolicy":"IfNotPresent","name":"db","resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/var/run/secrets/kubernetes.io/serviceaccount","name":"default-token-kv49p","readOnly":true}]}],"dnsPolicy":"ClusterFirst","enableServiceLinks":true,"nodeName":"minikube","preemptionPolicy":"PreemptLowerPriority","priority":0,"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"serviceAccount":"default","serviceAccountName":"default","terminationGracePeriodSeconds":30,"tolerations":[{"effect":"NoExecute","key":"node.kubernetes.io/not-ready","operator":"Exists","tolerationSeconds":300},{"effect":"NoExecute","key":"node.kubernetes.io/unreachable","operator":"Exists","tolerationSeconds":300}],"volumes":[{"name":"default-token-kv49p","secret":{"defaultMode":420,"secretName":"default-token-kv49p"}}]},"status":{"conditions":[{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T10:07:25Z","status":"True","type":"Initialized"},{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T10:07:27Z","status":"True","type":"Ready"},{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T10:07:27Z","status":"True","type":"ContainersReady"},{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T10:07:25Z","status":"True","type":"PodScheduled"}],"containerStatuses":[{"containerID":"docker://99086815bbb835c5dfe912c233611d230fdd9b35a1e1695f959950e462a0a350","image":"mysql:5.7","imageID":"docker-pullable://mysql@sha256:a682e3c78fc5bd941e9db080b4796c75f69a28a8cad65677c23f7a9f18ba21fa","lastState":{},"name":"db","ready":true,"restartCount":0,"started":true,"state":{"running":{"startedAt":"2021-06-16T10:07:27Z"}}}],"hostIP":"192.168.49.2","phase":"Running","podIP":"172.17.0.5","podIPs":[{"ip":"172.17.0.5"}],"qosClass":"BestEffort","startTime":"2021-06-16T10:07:25Z"}}
+    creationTimestamp: "2021-06-16T10:19:11Z"
     labels:
       run: db
     name: db
     namespace: demo-ns
-    resourceVersion: "18935"
-    uid: c86add99-33b8-4989-9b4f-3a5eb999800c
+    resourceVersion: "19511"
+    uid: 795b831b-5bb1-4d5a-9d0f-44cdc03b9987
   spec:
     containers:
     - env:
@@ -59,23 +62,23 @@ items:
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T10:07:25Z"
+      lastTransitionTime: "2021-06-16T10:19:11Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T10:07:27Z"
+      lastTransitionTime: "2021-06-16T10:19:14Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T10:07:27Z"
+      lastTransitionTime: "2021-06-16T10:19:14Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T10:07:25Z"
+      lastTransitionTime: "2021-06-16T10:19:11Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: docker://99086815bbb835c5dfe912c233611d230fdd9b35a1e1695f959950e462a0a350
+    - containerID: docker://1117f073076515423d170f782048b1f203f139477018aa1136284c3dd3cfa656
       image: mysql:5.7
       imageID: docker-pullable://mysql@sha256:a682e3c78fc5bd941e9db080b4796c75f69a28a8cad65677c23f7a9f18ba21fa
       lastState: {}
@@ -85,117 +88,27 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T10:07:27Z"
-    hostIP: 192.168.49.2
-    phase: Running
-    podIP: 172.17.0.5
-    podIPs:
-    - ip: 172.17.0.5
-    qosClass: BestEffort
-    startTime: "2021-06-16T10:07:25Z"
-- apiVersion: v1
-  kind: Pod
-  metadata:
-    creationTimestamp: "2021-06-15T14:09:07Z"
-    labels:
-      run: demo1
-    name: demo1
-    namespace: demo-ns
-    resourceVersion: "11432"
-    uid: 9220940d-6fe9-413c-9698-75434ade7e75
-  spec:
-    containers:
-    - image: k8s.gcr.io/echoserver:1.4
-      imagePullPolicy: IfNotPresent
-      name: demo1
-      ports:
-      - containerPort: 8080
-        protocol: TCP
-      resources: {}
-      terminationMessagePath: /dev/termination-log
-      terminationMessagePolicy: File
-      volumeMounts:
-      - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
-        name: default-token-kv49p
-        readOnly: true
-    dnsPolicy: ClusterFirst
-    enableServiceLinks: true
-    nodeName: minikube
-    preemptionPolicy: PreemptLowerPriority
-    priority: 0
-    restartPolicy: Always
-    schedulerName: default-scheduler
-    securityContext: {}
-    serviceAccount: default
-    serviceAccountName: default
-    terminationGracePeriodSeconds: 30
-    tolerations:
-    - effect: NoExecute
-      key: node.kubernetes.io/not-ready
-      operator: Exists
-      tolerationSeconds: 300
-    - effect: NoExecute
-      key: node.kubernetes.io/unreachable
-      operator: Exists
-      tolerationSeconds: 300
-    volumes:
-    - name: default-token-kv49p
-      secret:
-        defaultMode: 420
-        secretName: default-token-kv49p
-  status:
-    conditions:
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T14:09:07Z"
-      status: "True"
-      type: Initialized
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T07:12:09Z"
-      status: "True"
-      type: Ready
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T07:12:09Z"
-      status: "True"
-      type: ContainersReady
-    - lastProbeTime: null
-      lastTransitionTime: "2021-06-15T14:09:07Z"
-      status: "True"
-      type: PodScheduled
-    containerStatuses:
-    - containerID: docker://67863caaed864a8ac61a1921f0c88c127eba023d185389bd0a3228e00256175d
-      image: k8s.gcr.io/echoserver:1.4
-      imageID: docker-pullable://k8s.gcr.io/echoserver@sha256:5d99aa1120524c801bc8c1a7077e8f5ec122ba16b6dda1a5d3826057f67b9bcb
-      lastState:
-        terminated:
-          containerID: docker://37690417ffb92b5e87437236ff3ad8e46ae8ba181228231f54e123dae980040f
-          exitCode: 0
-          finishedAt: "2021-06-15T15:03:22Z"
-          reason: Completed
-          startedAt: "2021-06-15T14:09:18Z"
-      name: demo1
-      ready: true
-      restartCount: 1
-      started: true
-      state:
-        running:
-          startedAt: "2021-06-16T07:12:07Z"
+          startedAt: "2021-06-16T10:19:13Z"
     hostIP: 192.168.49.2
     phase: Running
     podIP: 172.17.0.2
     podIPs:
     - ip: 172.17.0.2
     qosClass: BestEffort
-    startTime: "2021-06-15T14:09:07Z"
+    startTime: "2021-06-16T10:19:11Z"
 - apiVersion: v1
   kind: Pod
   metadata:
-    creationTimestamp: "2021-06-16T09:41:07Z"
+    annotations:
+      kubectl.kubernetes.io/last-applied-configuration: |
+        {"apiVersion":"v1","kind":"Pod","metadata":{"annotations":{},"creationTimestamp":"2021-06-16T09:41:07Z","labels":{"run":"wordpress"},"name":"wordpress","namespace":"demo-ns","resourceVersion":"17789","uid":"3a688dde-e019-4047-94e3-9723f329be5d"},"spec":{"containers":[{"env":[{"name":"WORDPRESS_DB_HOST","value":"db"},{"name":"WORDPRESS_DB_USER","value":"exampleuser"},{"name":"WORDPRESS_DB_PASSWORD","value":"examplepass"},{"name":"WORDPRESS_DB_NAME","value":"exampledb"}],"image":"wordpress","imagePullPolicy":"Always","name":"wordpress","ports":[{"containerPort":80,"protocol":"TCP"}],"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/var/run/secrets/kubernetes.io/serviceaccount","name":"default-token-kv49p","readOnly":true}]}],"dnsPolicy":"ClusterFirst","enableServiceLinks":true,"nodeName":"minikube","preemptionPolicy":"PreemptLowerPriority","priority":0,"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"serviceAccount":"default","serviceAccountName":"default","terminationGracePeriodSeconds":30,"tolerations":[{"effect":"NoExecute","key":"node.kubernetes.io/not-ready","operator":"Exists","tolerationSeconds":300},{"effect":"NoExecute","key":"node.kubernetes.io/unreachable","operator":"Exists","tolerationSeconds":300}],"volumes":[{"name":"default-token-kv49p","secret":{"defaultMode":420,"secretName":"default-token-kv49p"}}]},"status":{"conditions":[{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T09:41:07Z","status":"True","type":"Initialized"},{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T09:41:38Z","status":"True","type":"Ready"},{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T09:41:38Z","status":"True","type":"ContainersReady"},{"lastProbeTime":null,"lastTransitionTime":"2021-06-16T09:41:07Z","status":"True","type":"PodScheduled"}],"containerStatuses":[{"containerID":"docker://7cc1cbbf7c681568051de7c696b1e44652550fbaf8b7be00cc0268730272ea3e","image":"wordpress:latest","imageID":"docker-pullable://wordpress@sha256:e9da0d6c867249f364cd2292ea0dd01d7281e8dfbcc3e4b39b823f9a790b237b","lastState":{},"name":"wordpress","ready":true,"restartCount":0,"started":true,"state":{"running":{"startedAt":"2021-06-16T09:41:37Z"}}}],"hostIP":"192.168.49.2","phase":"Running","podIP":"172.17.0.4","podIPs":[{"ip":"172.17.0.4"}],"qosClass":"BestEffort","startTime":"2021-06-16T09:41:07Z"}}
+    creationTimestamp: "2021-06-16T10:19:11Z"
     labels:
       run: wordpress
     name: wordpress
     namespace: demo-ns
-    resourceVersion: "17789"
-    uid: 3a688dde-e019-4047-94e3-9723f329be5d
+    resourceVersion: "19519"
+    uid: 6d20c294-3613-442c-9409-212464118a82
   spec:
     containers:
     - env:
@@ -248,23 +161,23 @@ items:
   status:
     conditions:
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T09:41:07Z"
+      lastTransitionTime: "2021-06-16T10:19:11Z"
       status: "True"
       type: Initialized
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T09:41:38Z"
+      lastTransitionTime: "2021-06-16T10:19:17Z"
       status: "True"
       type: Ready
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T09:41:38Z"
+      lastTransitionTime: "2021-06-16T10:19:17Z"
       status: "True"
       type: ContainersReady
     - lastProbeTime: null
-      lastTransitionTime: "2021-06-16T09:41:07Z"
+      lastTransitionTime: "2021-06-16T10:19:11Z"
       status: "True"
       type: PodScheduled
     containerStatuses:
-    - containerID: docker://7cc1cbbf7c681568051de7c696b1e44652550fbaf8b7be00cc0268730272ea3e
+    - containerID: docker://194de968aa8a11f0049d092855ffb65d82f5fe9d970063e56255c0bcd60763cc
       image: wordpress:latest
       imageID: docker-pullable://wordpress@sha256:e9da0d6c867249f364cd2292ea0dd01d7281e8dfbcc3e4b39b823f9a790b237b
       lastState: {}
@@ -274,14 +187,14 @@ items:
       started: true
       state:
         running:
-          startedAt: "2021-06-16T09:41:37Z"
+          startedAt: "2021-06-16T10:19:16Z"
     hostIP: 192.168.49.2
     phase: Running
-    podIP: 172.17.0.4
+    podIP: 172.17.0.5
     podIPs:
-    - ip: 172.17.0.4
+    - ip: 172.17.0.5
     qosClass: BestEffort
-    startTime: "2021-06-16T09:41:07Z"
+    startTime: "2021-06-16T10:19:11Z"
 kind: List
 metadata:
   resourceVersion: ""

@@ -41,7 +41,14 @@ spec:
               key: BLOG_DB_NAME
         image: wordpress
         name: wordpress
+        volumeMounts:
+          - mountPath: /var/www/html
+            name: wordpress-data
         ports:
         - containerPort: 80
         resources: {}
+      volumes:
+        - name: wordpress-data
+          persistentVolumeClaim:
+            claimName: wordpress-data
 status: {}

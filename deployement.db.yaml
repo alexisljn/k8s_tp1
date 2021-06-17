@@ -26,14 +26,14 @@ spec:
               key: BLOG_DB_NAME
         - name: MYSQL_USER
           valueFrom:
-            configMapKeyRef:
-              name: db-config
-              key: BLOG_DB_USERNAME
+            secretKeyRef:
+              name: db-secret
+              key: username
         - name: MYSQL_PASSWORD
           valueFrom:
-            configMapKeyRef:
-              name: db-config
-              key: BLOG_DB_PASSWORD
+            secretKeyRef:
+              name: db-secret
+              key: password
         - name: MYSQL_RANDOM_ROOT_PASSWORD
           value: "1"
         image: mysql:5.7

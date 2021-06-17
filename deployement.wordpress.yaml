@@ -26,14 +26,14 @@ spec:
               key: BLOG_DB_HOST
         - name: WORDPRESS_DB_USER
           valueFrom:
-            configMapKeyRef:
-              name: db-config
-              key: BLOG_DB_USERNAME
+            secretKeyRef:
+              name: db-secret
+              key: username
         - name: WORDPRESS_DB_PASSWORD
           valueFrom:
-            configMapKeyRef:
-              name: db-config
-              key: BLOG_DB_PASSWORD
+            secretKeyRef:
+              name: db-secret
+              key: password
         - name: WORDPRESS_DB_NAME
           valueFrom:
             configMapKeyRef:
